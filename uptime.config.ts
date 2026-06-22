@@ -7,7 +7,7 @@ import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
 
 const pageConfig: PageConfig = {
   // Title for your status page
-  title: "Sak's Status Page",
+  title: "lyc8503's Status Page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
     { link: 'https://github.com/cnzz666', label: 'GitHub' },
@@ -19,14 +19,14 @@ const pageConfig: PageConfig = {
 const workerConfig: WorkerConfig = {
   // Define all your monitors here
   monitors: [
-    // Cloudflare登录页面（置顶）
+    // IPv6 Google 连通性检测（置顶第一项）
     {
-      id: 'cf_login_monitor',
-      name: 'Cloudflare 登录后台',
+      id: 'ipv6_google_monitor',
+      name: 'IPv6 Google 连通检测',
       method: 'GET',
-      target: 'https://cloudflare.com/login',
-      tooltip: 'Cloudflare控制台登录页面',
-      statusPageLink: 'https://cloudflare.com/login',
+      target: 'https://ipv6.google.com',
+      tooltip: 'IPv6网络连通性基准检测',
+      statusPageLink: 'https://ipv6.google.com',
       expectedCodes: [200],
       timeout: 10000,
       headers: {
@@ -179,7 +179,7 @@ const workerConfig: WorkerConfig = {
       name: 'dzmm 站点',
       method: 'GET',
       target: 'https://dzmm.ilqx.dpdns.org',
-      tooltip: 'dzmm页面',
+      tooltip: 'dzmm独立服务页面',
       statusPageLink: 'https://dzmm.ilqx.dpdns.org',
       expectedCodes: [200],
       timeout: 10000,
