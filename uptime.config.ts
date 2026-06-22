@@ -7,7 +7,7 @@ import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
 
 const pageConfig: PageConfig = {
   // Title for your status page
-  title: "Sak's Status Page",
+  title: "lyc8503's Status Page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
     { link: 'https://github.com/lyc8503', label: 'GitHub' },
@@ -24,7 +24,7 @@ const workerConfig: WorkerConfig = {
       id: 'api_monitor',
       name: '福彩3D API',
       method: 'GET',
-      target: 'https://api.ilqx.dpdns.org',
+      target: 'https://api.ilqx.dpdns.org/cp/cp1.0.3',
       tooltip: '福彩3D数据接口服务',
       statusPageLink: 'https://api.ilqx.dpdns.org',
       expectedCodes: [200],
@@ -164,7 +164,7 @@ const workerConfig: WorkerConfig = {
       id: 'bar_monitor',
       name: 'CloudPaste 后端服务',
       method: 'GET',
-      target: 'https://bar.ilqx.dpdns.org',
+      target: 'https://bar.ilqx.dpdns.org/api/paste/84nvyY',
       tooltip: 'CloudPaste 文本分享后端API',
       statusPageLink: 'https://bar.ilqx.dpdns.org',
       expectedCodes: [200],
@@ -245,33 +245,8 @@ const workerConfig: WorkerConfig = {
   },
 }
 
-// 维护时段：2026-06-22 12:00 至 2050-06-22 12:00
-const maintenances: MaintenanceConfig[] = [
-  {
-    monitors: [
-      'api_monitor',
-      'cw_monitor',
-      'dl_monitor',
-      'root_monitor',
-      'jd_monitor',
-      'jkweb_monitor',
-      'jx_monitor',
-      'mc_monitor',
-      'tc_monitor',
-      'tz_monitor',
-      'bar_monitor',
-      'dzmm_monitor',
-      'fd_monitor',
-      'ip_monitor',
-      'mail_monitor'
-    ],
-    title: '长期站点维护窗口期',
-    body: '全站点预留长期维护时段，期间故障告警暂停推送，状态页面展示维护提示',
-    start: '2026-06-22T12:00:00+08:00',
-    end: '2050-06-22T12:00:00+08:00',
-    color: 'blue',
-  },
-]
+// 当前无任何维护计划
+const maintenances: MaintenanceConfig[] = []
 
 // Don't edit this line
 export { maintenances, pageConfig, workerConfig }
