@@ -7,61 +7,33 @@ import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
 
 const pageConfig: PageConfig = {
   // Title for your status page
-  title: "lyc8503's Status Page",
+  title: "Sak's Status Page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'https://github.com/lyc8503', label: 'GitHub' },
-    { link: 'https://blog.lyc8503.net/', label: 'Blog' },
-    { link: 'mailto:me@lyc8503.net', label: 'Email Me', highlight: true },
+    { link: 'https://github.com/cnzz666', label: 'GitHub' },
+    { link: 'https://ilqx.dpdns.org', label: 'Blog' },
+    { link: 'mailto:cnzz666@163.com', label: 'Email Me', highlight: true },
   ],
 }
 
 const workerConfig: WorkerConfig = {
   // Define all your monitors here
   monitors: [
-    // 福彩3D API
+    // Cloudflare登录页面（置顶）
     {
-      id: 'api_monitor',
-      name: '福彩3D API',
+      id: 'cf_login_monitor',
+      name: 'Cloudflare 登录后台',
       method: 'GET',
-      target: 'https://api.ilqx.dpdns.org/cp/cp1.0.3',
-      tooltip: '福彩3D数据接口服务',
-      statusPageLink: 'https://api.ilqx.dpdns.org',
+      target: 'https://cloudflare.com/login',
+      tooltip: 'Cloudflare控制台登录页面',
+      statusPageLink: 'https://cloudflare.com/login',
       expectedCodes: [200],
       timeout: 10000,
       headers: {
         'User-Agent': 'Uptimeflare',
       },
     },
-    // CloudPaste 前端
-    {
-      id: 'cw_monitor',
-      name: 'CloudPaste 内容分享前端',
-      method: 'GET',
-      target: 'https://cw.ilqx.dpdns.org',
-      tooltip: 'CloudPaste 安全文本分享网页',
-      statusPageLink: 'https://cw.ilqx.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-    },
-    // 短链服务
-    {
-      id: 'dl_monitor',
-      name: 'Linklet 短链接服务',
-      method: 'GET',
-      target: 'https://dl.ilqx.dpdns.org',
-      tooltip: '短链接生成与跳转系统',
-      statusPageLink: 'https://dl.ilqx.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-    },
-    // 个人主页 root(ilqx.dpdns.org)
+    // 个人主页（日常主站）
     {
       id: 'root_monitor',
       name: '个人主页',
@@ -75,84 +47,14 @@ const workerConfig: WorkerConfig = {
         'User-Agent': 'Uptimeflare',
       },
     },
-    // 节点管理页
+    // CloudPaste 前端分享页
     {
-      id: 'jd_monitor',
-      name: '节点管理后台',
+      id: 'cw_monitor',
+      name: 'CloudPaste 内容分享前端',
       method: 'GET',
-      target: 'https://jd.ilqx.dpdns.org',
-      tooltip: '代理节点管理页面',
-      statusPageLink: 'https://jd.ilqx.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-    },
-    // UptimeFlare 监控面板
-    {
-      id: 'jkweb_monitor',
-      name: 'UptimeFlare 监控面板',
-      method: 'GET',
-      target: 'https://jkweb.ilqx.dpdns.org',
-      tooltip: '站点在线状态监控页面',
-      statusPageLink: 'https://jkweb.ilqx.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-    },
-    // VIP全网视频解析
-    {
-      id: 'jx_monitor',
-      name: 'VIP视频解析服务',
-      method: 'GET',
-      target: 'https://jx.ilqx.dpdns.org',
-      tooltip: '全网影视VIP免费解析',
-      statusPageLink: 'https://jx.ilqx.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-    },
-    // MC在线网页端
-    {
-      id: 'mc_monitor',
-      name: 'MC Web 在线我的世界',
-      method: 'GET',
-      target: 'https://mc.ilqx.dpdns.org',
-      tooltip: '网页版Minecraft在线游玩',
-      statusPageLink: 'https://mc.ilqx.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-    },
-    // 图床服务
-    {
-      id: 'tc_monitor',
-      name: 'TC 图片存储图床',
-      method: 'GET',
-      target: 'https://tc.ilqx.dpdns.org',
-      tooltip: '图片上传与存储图床',
-      statusPageLink: 'https://tc.ilqx.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-    },
-    // 梯子宣传页
-    {
-      id: 'tz_monitor',
-      name: '代理服务宣传页',
-      method: 'GET',
-      target: 'https://tz.ilqx.dpdns.org',
-      tooltip: '机场/代理服务介绍页面',
-      statusPageLink: 'https://tz.ilqx.dpdns.org',
+      target: 'https://cw.ilqx.dpdns.org',
+      tooltip: 'CloudPaste 安全文本分享网页',
+      statusPageLink: 'https://cw.ilqx.dpdns.org',
       expectedCodes: [200],
       timeout: 10000,
       headers: {
@@ -173,28 +75,14 @@ const workerConfig: WorkerConfig = {
         'User-Agent': 'Uptimeflare',
       },
     },
-    // dzmm
+    // 短链接服务
     {
-      id: 'dzmm_monitor',
-      name: 'dzmm 站点',
+      id: 'dl_monitor',
+      name: 'Linklet 短链接服务',
       method: 'GET',
-      target: 'https://dzmm.ilqx.dpdns.org',
-      tooltip: 'dzmm独立服务页面',
-      statusPageLink: 'https://dzmm.ilqx.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare',
-      },
-    },
-    // Cloudflare在线反代
-    {
-      id: 'fd_monitor',
-      name: 'CF 在线反代工具',
-      method: 'GET',
-      target: 'https://fd.ilqx.dpdns.org',
-      tooltip: 'Cloudflare在线反向代理生成工具',
-      statusPageLink: 'https://fd.ilqx.dpdns.org',
+      target: 'https://dl.ilqx.dpdns.org',
+      tooltip: '短链接生成与跳转系统',
+      statusPageLink: 'https://dl.ilqx.dpdns.org',
       expectedCodes: [200],
       timeout: 10000,
       headers: {
@@ -215,7 +103,21 @@ const workerConfig: WorkerConfig = {
         'User-Agent': 'Uptimeflare',
       },
     },
-    // 邮箱页面 mail.ilqx.dpdns.org
+    // 图床服务
+    {
+      id: 'tc_monitor',
+      name: 'TC 图片存储图床',
+      method: 'GET',
+      target: 'https://tc.ilqx.dpdns.org',
+      tooltip: '图片上传与存储图床',
+      statusPageLink: 'https://tc.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 邮箱管理页面
     {
       id: 'mail_monitor',
       name: '邮箱管理页面',
@@ -223,6 +125,118 @@ const workerConfig: WorkerConfig = {
       target: 'https://mail.ilqx.dpdns.org',
       tooltip: '邮件收发管理网页',
       statusPageLink: 'https://mail.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 监控面板
+    {
+      id: 'jkweb_monitor',
+      name: 'UptimeFlare 监控面板',
+      method: 'GET',
+      target: 'https://jkweb.ilqx.dpdns.org',
+      tooltip: '站点在线状态监控页面',
+      statusPageLink: 'https://jkweb.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 节点管理后台
+    {
+      id: 'jd_monitor',
+      name: '节点管理后台',
+      method: 'GET',
+      target: 'https://jd.ilqx.dpdns.org',
+      tooltip: '代理节点管理页面',
+      statusPageLink: 'https://jd.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // CF在线反代工具
+    {
+      id: 'fd_monitor',
+      name: 'CF 在线反代工具',
+      method: 'GET',
+      target: 'https://fd.ilqx.dpdns.org',
+      tooltip: 'Cloudflare在线反向代理生成工具',
+      statusPageLink: 'https://fd.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // dzmm站点
+    {
+      id: 'dzmm_monitor',
+      name: 'dzmm 站点',
+      method: 'GET',
+      target: 'https://dzmm.ilqx.dpdns.org',
+      tooltip: 'dzmm页面',
+      statusPageLink: 'https://dzmm.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // VIP视频解析
+    {
+      id: 'jx_monitor',
+      name: 'VIP视频解析服务',
+      method: 'GET',
+      target: 'https://jx.ilqx.dpdns.org',
+      tooltip: '全网影视VIP免费解析',
+      statusPageLink: 'https://jx.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // MC网页端
+    {
+      id: 'mc_monitor',
+      name: 'MC Web 在线我的世界',
+      method: 'GET',
+      target: 'https://mc.ilqx.dpdns.org',
+      tooltip: '网页版Minecraft在线游玩',
+      statusPageLink: 'https://mc.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 代理宣传页
+    {
+      id: 'tz_monitor',
+      name: '代理服务宣传页',
+      method: 'GET',
+      target: 'https://tz.ilqx.dpdns.org',
+      tooltip: '机场/代理服务介绍页面',
+      statusPageLink: 'https://tz.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 福彩3D API（放到最后）
+    {
+      id: 'api_monitor',
+      name: '福彩3D API',
+      method: 'GET',
+      target: 'https://api.ilqx.dpdns.org/cp/cp1.0.3',
+      tooltip: '福彩3D数据接口服务',
+      statusPageLink: 'https://api.ilqx.dpdns.org',
       expectedCodes: [200],
       timeout: 10000,
       headers: {
