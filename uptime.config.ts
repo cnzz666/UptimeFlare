@@ -19,53 +19,217 @@ const pageConfig: PageConfig = {
 const workerConfig: WorkerConfig = {
   // Define all your monitors here
   monitors: [
-    // Example HTTP Monitor
+    // 福彩3D API
     {
-      // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'foo_monitor',
-      // `name` is used at status page and callback message
-      name: 'My API Monitor',
-      // `method` should be a valid HTTP Method
+      id: 'api_monitor',
+      name: '福彩3D API',
       method: 'GET',
-      // `target` is a valid URL
-      target: 'https://example.com',
-      // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
-      tooltip: 'This is a tooltip for this monitor',
-      // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
-      statusPageLink: 'https://example.com',
-      // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
+      target: 'https://api.ilqx.dpdns.org',
+      tooltip: '福彩3D数据接口服务',
+      statusPageLink: 'https://api.ilqx.dpdns.org',
       expectedCodes: [200],
-      // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
       timeout: 10000,
-      // [OPTIONAL] headers to be sent
       headers: {
         'User-Agent': 'Uptimeflare',
-        Authorization: 'Bearer YOUR_TOKEN_HERE',
       },
-      // [OPTIONAL] body to be sent (require POST/PUT/PATCH method)
-      // body: 'Hello, world!',
-      // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
-      // responseKeyword: 'success',
-      // [OPTIONAL] if specified, the response must NOT contains the keyword to be considered as operational.
-      // responseForbiddenKeyword: 'bad gateway',
-      // [OPTIONAL] if specified, will call the check proxy to check the monitor, mainly for geo-specific checks
-      // refer to docs https://github.com/lyc8503/UptimeFlare/wiki/Check-proxy-setup before setting this value
-      // currently supports `worker://`, `globalping://` and `http(s)://` proxies
-      // checkProxy: 'worker://weur',
-      // [OPTIONAL] if true, the check will fallback to local if the specified proxy is down
-      // checkProxyFallback: true,
     },
-    // Example TCP Monitor
+    // bd 无需监控，跳过
+    // CloudPaste 前端
     {
-      id: 'test_tcp_monitor',
-      name: 'Example TCP Monitor',
-      // `method` should be `TCP_PING` for tcp monitors
-      method: 'TCP_PING',
-      // `target` should be `host:port` for tcp monitors
-      target: '1.2.3.4:22',
-      tooltip: 'My production server SSH',
-      statusPageLink: 'https://example.com',
-      timeout: 5000,
+      id: 'cw_monitor',
+      name: 'CloudPaste 内容分享前端',
+      method: 'GET',
+      target: 'https://cw.ilqx.dpdns.org',
+      tooltip: 'CloudPaste 安全文本分享网页',
+      statusPageLink: 'https://cw.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 短链服务
+    {
+      id: 'dl_monitor',
+      name: 'Linklet 短链接服务',
+      method: 'GET',
+      target: 'https://dl.ilqx.dpdns.org',
+      tooltip: '短链接生成与跳转系统',
+      statusPageLink: 'https://dl.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 个人主页 root(ilqx.dpdns.org)
+    {
+      id: 'root_monitor',
+      name: '个人主页',
+      method: 'GET',
+      target: 'https://ilqx.dpdns.org',
+      tooltip: '个人主站首页',
+      statusPageLink: 'https://ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 节点管理页
+    {
+      id: 'jd_monitor',
+      name: '节点管理后台',
+      method: 'GET',
+      target: 'https://jd.ilqx.dpdns.org',
+      tooltip: '代理节点管理页面',
+      statusPageLink: 'https://jd.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // UptimeFlare 监控面板
+    {
+      id: 'jkweb_monitor',
+      name: 'UptimeFlare 监控面板',
+      method: 'GET',
+      target: 'https://jkweb.ilqx.dpdns.org',
+      tooltip: '站点在线状态监控页面',
+      statusPageLink: 'https://jkweb.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // VIP全网视频解析
+    {
+      id: 'jx_monitor',
+      name: 'VIP视频解析服务',
+      method: 'GET',
+      target: 'https://jx.ilqx.dpdns.org',
+      tooltip: '全网影视VIP免费解析',
+      statusPageLink: 'https://jx.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+    },
+    // MC在线网页端
+    {
+      id: 'mc_monitor',
+      name: 'MC Web 在线我的世界',
+      method: 'GET',
+      target: 'https://mc.ilqx.dpdns.org',
+      tooltip: '网页版Minecraft在线游玩',
+      statusPageLink: 'https://mc.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 图床服务
+    {
+      id: 'tc_monitor',
+      name: 'TC 图片存储图床',
+      method: 'GET',
+      target: 'https://tc.ilqx.dpdns.org',
+      tooltip: '图片上传与存储图床',
+      statusPageLink: 'https://tc.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // 梯子宣传页
+    {
+      id: 'tz_monitor',
+      name: '代理服务宣传页',
+      method: 'GET',
+      target: 'https://tz.ilqx.dpdns.org',
+      tooltip: '机场/代理服务介绍页面',
+      statusPageLink: 'https://tz.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // xlcx 跳过不监控
+    // CloudPaste 后端接口
+    {
+      id: 'bar_monitor',
+      name: 'CloudPaste 后端服务',
+      method: 'GET',
+      target: 'https://bar.ilqx.dpdns.org',
+      tooltip: 'CloudPaste 文本分享后端API',
+      statusPageLink: 'https://bar.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // dzmm
+    {
+      id: 'dzmm_monitor',
+      name: 'dzmm 站点',
+      method: 'GET',
+      target: 'https://dzmm.ilqx.dpdns.org',
+      tooltip: 'dzmm独立服务页面',
+      statusPageLink: 'https://dzmm.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // Cloudflare在线反代
+    {
+      id: 'fd_monitor',
+      name: 'CF 在线反代工具',
+      method: 'GET',
+      target: 'https://fd.ilqx.dpdns.org',
+      tooltip: 'Cloudflare在线反向代理生成工具',
+      statusPageLink: 'https://fd.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // IP查询接口
+    {
+      id: 'ip_monitor',
+      name: 'IP地址查询API',
+      method: 'GET',
+      target: 'https://ip.ilqx.dpdns.org',
+      tooltip: '获取访问者IP及归属信息',
+      statusPageLink: 'https://ip.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
+    },
+    // jscx 跳过不监控
+    // 邮箱页面 mail.ilqx.dpdns.org
+    {
+      id: 'mail_monitor',
+      name: '邮箱管理页面',
+      method: 'GET',
+      target: 'https://mail.ilqx.dpdns.org',
+      tooltip: '邮件收发管理网页',
+      statusPageLink: 'https://mail.ilqx.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: {
+        'User-Agent': 'Uptimeflare',
+      },
     },
   ],
   // [Optional] Notification settings
@@ -105,27 +269,30 @@ const workerConfig: WorkerConfig = {
   },
 }
 
-// You can define multiple maintenances here
-// During maintenance, an alert will be shown at status page
-// Also, related downtime notifications will be skipped (if any)
-// Of course, you can leave it empty if you don't need this feature
-
-// const maintenances: MaintenanceConfig[] = []
-
+// 维护时段：2026-06-22 12:00 至 2050-06-22 12:00
 const maintenances: MaintenanceConfig[] = [
   {
-    // [Optional] Monitor IDs to be affected by this maintenance
-    monitors: ['foo_monitor', 'bar_monitor'],
-    // [Optional] default to "Scheduled Maintenance" if not specified
-    title: 'Test Maintenance',
-    // Description of the maintenance, will be shown at status page
-    body: 'This is a test maintenance, server software upgrade',
-    // Start time of the maintenance, in UNIX timestamp or ISO 8601 format
-    start: '2020-01-01T00:00:00+08:00',
-    // [Optional] end time of the maintenance, in UNIX timestamp or ISO 8601 format
-    // if not specified, the maintenance will be considered as on-going
-    end: '2050-01-01T00:00:00+08:00',
-    // [Optional] color of the maintenance alert at status page, default to "yellow"
+    monitors: [
+      'api_monitor',
+      'cw_monitor',
+      'dl_monitor',
+      'root_monitor',
+      'jd_monitor',
+      'jkweb_monitor',
+      'jx_monitor',
+      'mc_monitor',
+      'tc_monitor',
+      'tz_monitor',
+      'bar_monitor',
+      'dzmm_monitor',
+      'fd_monitor',
+      'ip_monitor',
+      'mail_monitor'
+    ],
+    title: '长期站点维护窗口期',
+    body: '全站点预留长期维护时段，期间故障告警暂停推送，状态页面展示维护提示',
+    start: '2026-06-22T12:00:00+08:00',
+    end: '2050-06-22T12:00:00+08:00',
     color: 'blue',
   },
 ]
